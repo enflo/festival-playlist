@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Privacy Policy - Festival Playlist</title>
+  <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+  <header id="site-header">
+    <a href="/" class="header-title">Festival Playlist</a>
+  </header>
+
+  <main>
+    <article class="legal">
+      <h1>Privacy Policy</h1>
+      <p class="legal-updated">Last updated: May 25, 2026</p>
+
+      <h2>Overview</h2>
+      <p>Festival Playlist is a web application that creates Spotify playlists from festival lineup poster images. This policy explains what data we collect, how we use it, and your rights.</p>
+
+      <h2>Data We Collect</h2>
+
+      <h3>Spotify Account Data</h3>
+      <p>When you log in with Spotify, we receive and temporarily store in your session:</p>
+      <ul>
+        <li>Your Spotify user ID and display name</li>
+        <li>An OAuth access token and refresh token to interact with the Spotify API on your behalf</li>
+      </ul>
+      <p>This data is stored in a server-side signed session cookie and is not persisted to any database. It is removed when you log out or when your session expires.</p>
+
+      <h3>Uploaded Images</h3>
+      <p>When you upload a festival lineup poster, the image is processed in memory to extract artist names. Uploaded images are <strong>not stored</strong> on our servers. They are sent to a third-party AI vision service for text extraction and are discarded immediately after processing.</p>
+
+      <h3>Playlist Data</h3>
+      <p>Playlists are created directly in your Spotify account via the Spotify API. We do not store copies of your playlists or listening data.</p>
+
+      <h2>Third-Party Services</h2>
+      <p>Festival Playlist relies on the following third-party services:</p>
+      <ul>
+        <li><strong>Spotify API</strong> — for authentication, track search, and playlist creation. Subject to <a href="https://www.spotify.com/legal/privacy-policy/" target="_blank" rel="noopener">Spotify's Privacy Policy</a>.</li>
+        <li><strong>AI Vision Service</strong> — for extracting artist names from uploaded images. The image is sent to the configured AI provider for processing. No personal information is included in these requests.</li>
+      </ul>
+
+      <h2>Data Retention</h2>
+      <p>We do not operate a database. All session data exists only in your browser cookie for the duration of your session. We retain no personal data after you log out or your session ends.</p>
+
+      <h2>Your Rights</h2>
+      <p>You can:</p>
+      <ul>
+        <li><strong>Log out</strong> at any time to clear your session data</li>
+        <li><strong>Revoke access</strong> to Festival Playlist from your <a href="https://www.spotify.com/account/apps/" target="_blank" rel="noopener">Spotify account settings</a></li>
+        <li><strong>Delete playlists</strong> created by Festival Playlist directly from your Spotify account</li>
+      </ul>
+
+      <h2>Security</h2>
+      <p>Session cookies are cryptographically signed to prevent tampering. Communication with Spotify and AI services is conducted over HTTPS.</p>
+
+      <h2>Changes to This Policy</h2>
+      <p>We may update this policy from time to time. Changes will be reflected by updating the "Last updated" date at the top of this page.</p>
+
+      <h2>Contact</h2>
+      <p>If you have questions about this privacy policy, please open an issue on our GitHub repository.</p>
+    </article>
+  </main>
+
+  <footer>
+    <p class="footer-made">Made with ❤️ in Mallorca</p>
+    <nav class="footer-links">
+      <a href="/privacy-policy.html">Privacy Policy</a>
+      <a href="/cookie-policy.html">Cookie Policy</a>
+      <a href="/terms.html">Terms &amp; Conditions</a>
+    </nav>
+  </footer>
+</body>
+</html>

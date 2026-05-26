@@ -1,0 +1,21 @@
+[project]
+name = "festival-playlist"
+version = "0.1.0"
+description = "Create Spotify playlists from festival lineup poster images"
+license = "MIT"
+authors = [{ name = "Antoni Florit Homar" }]
+requires-python = ">=3.14"
+dependencies = [
+    "fastapi>=0.136.3",
+    "httpx>=0.28.1",
+    "itsdangerous>=2.2.0",
+    "litellm>=1.86.0",
+    "python-dotenv>=1.2.2",
+    "python-multipart>=0.0.29",
+    "uvicorn[standard]>=0.48.0",
+]
+
+[dependency-groups]
+dev = [
+    "ruff>=0.15.14",
+]

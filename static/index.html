@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Festival Playlist</title>
+  <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+  <header id="site-header">
+    <span class="header-title">Festival Playlist</span>
+    <div id="header-actions">
+      <span id="header-login-btn" hidden>
+        <button id="header-login-btn-2" class="btn btn-small btn-spotify">Log in</button>
+      </span>
+      <span id="header-user" hidden>
+        <span id="header-username"></span>
+        <button id="logout-btn">Log out</button>
+      </span>
+    </div>
+  </header>
+
+  <main>
+    <!-- Landing -->
+    <section id="landing-section" hidden>
+      <div class="hero">
+        <h1>Turn any festival poster into a playlist</h1>
+        <p class="hero-subtitle">Upload a photo of a lineup poster, and we'll use AI to read every artist name, then build a Spotify playlist you can listen to right away.</p>
+      </div>
+      <div class="steps">
+        <div class="step">
+          <div class="step-number">1</div>
+          <div class="step-content">
+            <h3>Upload a poster</h3>
+            <p>Snap a photo or drag in an image of any festival lineup.</p>
+          </div>
+        </div>
+        <div class="step">
+          <div class="step-number">2</div>
+          <div class="step-content">
+            <h3>Review the artists</h3>
+            <p>AI vision reads the poster and extracts every name. You can add or remove artists before continuing.</p>
+          </div>
+        </div>
+        <div class="step">
+          <div class="step-number">3</div>
+          <div class="step-content">
+            <h3>Get your playlist</h3>
+            <p>Top tracks from each artist are added to a new Spotify playlist, ready to play.</p>
+          </div>
+        </div>
+      </div>
+      <div class="landing-cta">
+        <button id="landing-login-btn" class="btn btn-spotify">Log in with Spotify to get started</button>
+      </div>
+    </section>
+
+    <!-- Login Modal -->
+    <div id="login-modal" class="modal-overlay" hidden>
+      <div class="modal">
+        <button id="modal-close" class="modal-close">&times;</button>
+        <h2>Connect to Spotify</h2>
+        <p class="modal-text">We need access to your Spotify account to search for tracks and create playlists. You can revoke access any time from your Spotify settings.</p>
+        <a href="/login" class="btn btn-spotify">Log in with Spotify</a>
+      </div>
+    </div>
+
+    <!-- Playlists -->
+    <section id="playlists-section" hidden>
+      <p id="greeting"></p>
+      <div class="section-header">
+        <h2>Your Festival Playlists</h2>
+        <button id="add-new-btn" class="btn btn-small">Add New</button>
+      </div>
+      <div id="playlists-loading" class="loading" hidden>
+        <div class="spinner"></div><span>Loading playlists...</span>
+      </div>
+      <ul id="playlists-list"></ul>
+      <p id="no-playlists" hidden class="hint">No festival playlists yet. Create your first one!</p>
+    </section>
+
+    <!-- Upload -->
+    <section id="upload-section" hidden>
+      <button id="back-to-playlists" class="btn-back">&larr; Back to playlists</button>
+      <div id="drop-zone">
+        <p id="drop-zone-text">Drag &amp; drop a lineup poster here, or click to select</p>
+        <input type="file" id="file-input" accept="image/jpeg,image/png,image/webp">
+      </div>
+      <img id="preview" hidden alt="Preview">
+      <button id="extract-btn" class="btn" hidden>Extract Artists</button>
+      <div id="extract-loading" class="loading" hidden>
+        <div class="spinner"></div><span>Extracting artists...</span>
+      </div>
+    </section>
+
+    <!-- Review -->
+    <section id="review-section" hidden>
+      <button id="back-to-upload" class="btn-back">&larr; Back to upload</button>
+      <h2>Artists Found</h2>
+      <p class="hint">Uncheck any false positives. Add missing artists below.</p>
+      <div class="select-controls">
+        <span id="artist-count"></span>
+        <button id="select-all-btn" class="btn-link">Select all</button>
+        <button id="deselect-all-btn" class="btn-link">Deselect all</button>
+      </div>
+      <ul id="artist-list"></ul>
+      <div class="add-artist">
+        <input type="text" id="add-artist-input" placeholder="Add an artist...">
+        <button id="add-artist-btn" class="btn btn-small">Add</button>
+      </div>
+      <div class="playlist-name-row">
+        <label for="playlist-name">Playlist name</label>
+        <input type="text" id="playlist-name" value="Festival Playlist">
+      </div>
+      <div class="playlist-name-row">
+        <label for="tracks-per-artist">Tracks per artist</label>
+        <input type="number" id="tracks-per-artist" value="3" min="1" max="10">
+      </div>
+      <button id="create-btn" class="btn">Create Playlist</button>
+      <div id="create-loading" class="loading" hidden>
+        <div class="spinner"></div><span>Creating playlist...</span>
+      </div>
+    </section>
+
+    <!-- Result -->
+    <section id="result-section" hidden>
+      <h2>Playlist Created</h2>
+      <p><a id="playlist-link" href="#" target="_blank" rel="noopener">Open in Spotify</a></p>
+      <p id="track-count"></p>
+      <div id="not-found-wrapper" hidden>
+        <p><strong>Artists not found on Spotify:</strong></p>
+        <ul id="not-found-list"></ul>
+      </div>
+      <button id="restart-btn" class="btn">Create Another</button>
+    </section>
+
+    <!-- Errors -->
+    <div id="error-bar" hidden>
+      <span id="error-msg"></span>
+      <button id="error-dismiss">&times;</button>
+    </div>
+  </main>
+  <footer>
+    <p class="footer-made">Made with ❤️ in Mallorca</p>
+    <nav class="footer-links">
+      <a href="/privacy-policy.html">Privacy Policy</a>
+      <a href="/cookie-policy.html">Cookie Policy</a>
+      <a href="/terms.html">Terms &amp; Conditions</a>
+    </nav>
+  </footer>
+
+  <!-- Cookie Banner -->
+  <div id="cookie-banner" hidden>
+    <p>We use essential cookies to keep you logged in. No tracking, no ads. <a href="/cookie-policy.html">Learn more</a></p>
+    <button id="cookie-accept" class="btn btn-small">Got it</button>
+  </div>
+
+  <script src="/app.js"></script>
+</body>
+</html>
