@@ -15,6 +15,9 @@ dependencies = [
     "uvicorn[standard]>=0.48.0",
 ]
 
+[project.urls]
+Repository = "https://github.com/enflo/festival-playlist"
+
 [dependency-groups]
 dev = [
     "ruff>=0.15.14",

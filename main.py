@@ -10,13 +10,14 @@ import time
 import httpx
 
 import litellm
-litellm.suppress_debug_info = True
 from dotenv import load_dotenv
 from fastapi import FastAPI, HTTPException, Request, UploadFile
 from fastapi.responses import RedirectResponse
 from fastapi.staticfiles import StaticFiles
 from pydantic import BaseModel
 from starlette.middleware.sessions import SessionMiddleware
+
+litellm.suppress_debug_info = True
 
 load_dotenv()
 
