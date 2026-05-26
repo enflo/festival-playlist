@@ -19,7 +19,7 @@ Upload a festival lineup poster, and this app uses AI vision to extract the arti
 ## Setup
 
 ```bash
-git clone https://github.com/antoniflorit/festival-playlist.git
+git clone https://github.com/enflo/festival-playlist.git
 cd festival-playlist
 uv sync
 cp .env.example .env
